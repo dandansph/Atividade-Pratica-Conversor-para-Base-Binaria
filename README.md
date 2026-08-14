@@ -1,52 +1,107 @@
-# 🚀 Atividade Prática 02: Conversor de Bases com Pilha
+# 🚀 Conversor de Bases com Pilha
 
-Este projeto foi desenvolvido para a disciplina de Estrutura de Dados (IDP) e consiste na implementação de uma *Pilha (Stack)* dinâmica em linguagem C.
+Projeto desenvolvido em **linguagem C** para demonstrar a implementação e utilização de uma **Pilha (Stack) dinâmica** como estrutura de dados.
 
-Como aplicação prática, a estrutura de dados é utilizada como componente central de um sistema que converte números das bases *Decimal* e *Hexadecimal* para a base *Binária*.
-
----
-
-## 👨‍💻 Integrantes do Grupo
-
-* Daniel Henrique Pontes de Souza
-* Leandro Filipe Pereira Silva
-* Arthur Amorim Dias 
-* Igor Magalhães Sampaio
+A aplicação utiliza a pilha como componente central para realizar a conversão de números das bases **Decimal** e **Hexadecimal** para **Binário**, explorando conceitos como alocação dinâmica de memória, ponteiros, nós encadeados e modularização.
 
 ---
 
-## 🛠 Sobre a Implementação
+## 🛠️ Tecnologias
 
-O projeto segue os requisitos de modularização exigidos, separando a lógica da estrutura de dados da lógica da aplicação.
-
-### 1. Estrutura de Dados: Pilha Dinâmica (pilha.h e pilha.c)
-
-A Pilha foi implementada utilizando *alocação dinâmica de memória* (malloc e free) e ponteiros. Ela é composta por Nodes (Nós) que se conectam, onde a Pilha principal armazena apenas o ponteiro para o topo.
-
-Funções essenciais implementadas:
-* criar_pilha(): Aloca e inicializa uma nova pilha.
-* push(): Insere um novo elemento no topo da pilha.
-* pop(): Remove e retorna o elemento do topo da pilha.
-* top(): Apenas consulta o elemento do topo sem removê-lo.
-* esta_vazia(): Verifica se a pilha não possui elementos.
-* liberar_pilha(): Libera toda a memória alocada pela pilha.
-
-### 2. Aplicação Prática: Conversor de Bases (main.c)
-
-O arquivo main.c contém a interface de usuário (menu) e a lógica de conversão.
-
-* *Decimal para Binário:* O número decimal é dividido sucessivamente por 2, e os *restos* (0 ou 1) são empilhados (push). Ao final, a pilha é desempilhada (pop), revelando o número binário na ordem correta.
-* *Hexadecimal para Binário:* O número hexadecimal (string) é primeiro convertido para seu equivalente em *Decimal*. Em seguida, utiliza-se a mesma lógica de Decimal para Binário descrita acima.
+* **C**
+* **GCC**
+* **GitHub Codespaces**
 
 ---
 
-## ⚙ Como Compilar e Executar
+## 📚 Sobre o Projeto
 
-Este projeto foi desenvolvido e testado no ambiente *GitHub Codespaces, utilizando o compilador **GCC*.
+O projeto foi desenvolvido de forma modular, separando a implementação da estrutura de dados da lógica da aplicação.
 
-### 1. Compilação
+### 🧱 Pilha Dinâmica
 
-Para compilar o projeto, utilize o seguinte comando no terminal (certifique-se de estar na pasta conversor_base_binaria):
+A estrutura de dados foi implementada utilizando **alocação dinâmica de memória** (`malloc` e `free`) e ponteiros.
+
+A pilha é composta por nós (*Nodes*) encadeados, mantendo um ponteiro para o elemento localizado no topo.
+
+Principais operações implementadas:
+
+* `criar_pilha()` — Cria e inicializa uma nova pilha.
+* `push()` — Insere um elemento no topo da pilha.
+* `pop()` — Remove e retorna o elemento do topo.
+* `top()` — Consulta o elemento no topo sem removê-lo.
+* `esta_vazia()` — Verifica se a pilha está vazia.
+* `liberar_pilha()` — Libera toda a memória utilizada pela pilha.
+
+---
+
+## 🔢 Conversão de Bases
+
+### Decimal → Binário
+
+A conversão utiliza a própria estrutura de pilha:
+
+1. O número decimal é dividido sucessivamente por `2`.
+2. Os restos das divisões (`0` ou `1`) são inseridos na pilha através de `push()`.
+3. Os elementos são removidos utilizando `pop()`.
+4. A ordem dos elementos removidos forma o número em sua representação binária correta.
+
+### Hexadecimal → Binário
+
+Para números hexadecimais:
+
+1. O valor hexadecimal é recebido como uma `string`.
+2. O valor é convertido para sua representação decimal.
+3. A mesma lógica de conversão Decimal → Binário é aplicada.
+4. Os resultados são organizados utilizando a estrutura de pilha.
+
+---
+
+## 📂 Estrutura do Projeto
+
+```text
+.
+├── main.c      # Interface e lógica da aplicação
+├── pilha.c     # Implementação da estrutura de pilha
+├── pilha.h     # Definição da estrutura e funções da pilha
+└── README.md   # Documentação do projeto
+```
+
+---
+
+## ⚙️ Como Compilar e Executar
+
+O projeto pode ser compilado utilizando o **GCC**.
+
+### Compilação
 
 ```bash
-gcc main.c pilha.c -o conversor -lm
+gcc main.c pilha.c -o conversor -lm
+```
+
+### Execução
+
+```bash
+./conversor
+```
+
+---
+
+## 🎯 Conceitos Demonstrados
+
+* Estrutura de dados **Stack (Pilha)**
+* Alocação dinâmica de memória
+* Ponteiros em C
+* Nós encadeados
+* Manipulação de memória com `malloc` e `free`
+* Modularização de código
+* Conversão entre bases numéricas
+* Gerenciamento de memória
+
+---
+
+## 📌 Objetivo
+
+Demonstrar, de forma prática, como uma **estrutura de dados do tipo Pilha** pode ser aplicada na resolução de um problema real de processamento e conversão de números.
+
+O projeto também reforça conceitos fundamentais de **programação em C, estruturas encadeadas e gerenciamento de memória**.
